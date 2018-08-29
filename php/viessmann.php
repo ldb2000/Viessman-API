@@ -91,7 +91,7 @@ function getAccessToken($authorization_code)
         echo "Failed\n";
         echo curl_error($curl);
 
-    } elseif (json_decode($response)->error) {
+    } elseif (!empty(json_decode($response)->error)) {
         echo "Error:\n";
         echo $authorization_code;
         echo $response;
